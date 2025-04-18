@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 from dotenv import load_dotenv
 from langchain.chains import RetrievalQA
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-from langchain.vectorstores import Chroma
-from langchain.llms import GPT4All, LlamaCpp
+from langchain_chroma import Chroma
+from langchain_community.llms import GPT4All, LlamaCpp
 import os
 import argparse
 import time
@@ -51,7 +51,7 @@ def main():
 
         # Get the answer from the chain
         start = time.time()
-        res = qa(query)
+        res = qa.invoke(query)
         answer, docs = res['result'], [] if args.hide_source else res['source_documents']
         end = time.time()
 
