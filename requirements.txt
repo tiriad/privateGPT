@@ -14,3 +14,4 @@ tqdm==4.67.1
 langchain-community==0.3.21
 langchain-chroma==0.2.3
 sentence-tranformers==3.4.1
+langchain-huggingface==0.1.2
